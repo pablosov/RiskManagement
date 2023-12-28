@@ -114,6 +114,15 @@ module.exports = cds.service.impl(async function() {
         return risks;
     });
 
-
-
+    this.on("error", (err, req) => {
+        switch(err.code){
+        case 403:
+                err.message="Quien sos?"
+                break;
+        default:
+            err.message = err.message
+            break        
+        }
+        
+    })
 });
