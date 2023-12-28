@@ -19,7 +19,7 @@ annotate service.Risks with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'Priority',
+            Label : '{i18n>Priority}',
             Value : prio_code,
             Criticality : PrioCriticality
         },
@@ -28,6 +28,11 @@ annotate service.Risks with @(
             Value : impact,
             Label : '{i18n>Impact}',
             Criticality : criticality
+        },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target : 'bp/@Communication.Contact#contact1',
+            Label : '{i18n>BusinessPartner}',
         },
     ]
 );
@@ -172,6 +177,11 @@ annotate service.Risks with @(
                 Value : impact,
                 Label : '{i18n>Impact}',
                 Criticality : criticality
+            },
+            {
+                $Type : 'UI.DataFieldForAnnotation',
+                Target : 'bp/@Communication.Contact#contact2',
+                Label : '{i18n>BusinessPartner}',
             },],
     }
 );
@@ -216,3 +226,27 @@ annotate service.Risks with {
             ![@UI.TextArrangement] : #TextOnly,
         }
 };
+annotate service.Risks with @(
+    Communication.Contact #contact : {
+        $Type : 'Communication.ContactType',
+        fn : bp_BusinessPartner,
+    }
+);
+annotate service.BusinessPartners with @(
+    Communication.Contact #contact : {
+        $Type : 'Communication.ContactType',
+        fn : FullName,
+    }
+);
+annotate service.BusinessPartners with @(
+    Communication.Contact #contact1 : {
+        $Type : 'Communication.ContactType',
+        fn : FullName,
+    }
+);
+annotate service.BusinessPartners with @(
+    Communication.Contact #contact2 : {
+        $Type : 'Communication.ContactType',
+        fn : FullName,
+    }
+);

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "creator": "cds-dk 7.0.2"
+  "creator": "cds-dk 7.4.1"
  },
  "$version": "2.0",
  "definitions": {
@@ -6369,6 +6369,13 @@
      "@sap.label": "Authorization",
      "@sap.quickinfo": "Authorization Group"
     },
+    "BusinessPartnerPanNumber": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PAN",
+     "@sap.quickinfo": "Permanent Account Number"
+    },
     "CreatedByUser": {
      "type": "cds.String",
      "length": 12,
@@ -6436,7 +6443,9 @@
      "length": 20,
      "@sap.display.format": "UpperCase",
      "@sap.label": "VAT Registration No.",
-     "@sap.quickinfo": "VAT Registration Number"
+     "@sap.quickinfo": "VAT Registration Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
     },
     "BirthDate": {
      "type": "cds.Date",
@@ -6504,7 +6513,9 @@
      "type": "cds.String",
      "length": 1,
      "@sap.display.format": "UpperCase",
-     "@sap.label": "Natural Person"
+     "@sap.label": "Natural Person",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
     },
     "PaymentReason": {
      "type": "cds.String",
