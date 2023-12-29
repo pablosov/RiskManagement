@@ -81,7 +81,10 @@ module.exports = cds.service.impl(async function() {
         req.query.SELECT.columns.splice(expandIndex, 1);
 
         // Make sure bp_BusinessPartner (ID) will be returned
-        if (!req.query.SELECT.columns.find((column) =>
+        if (req.query.SELECT.columns.toString() == '*'){
+
+        }
+        else if (!req.query.SELECT.columns.find((column) =>
             column.ref.find((ref) => ref == "bp_BusinessPartner")
         )
         ) {
